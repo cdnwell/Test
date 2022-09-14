@@ -61,6 +61,42 @@ void DeleteMember(){
     printf("삭제할 이름이 정보가 없습니다.\n");
 }
 
+void UpdateMember(){
+    char name[20];
+
+    printf("연락처에서 수정할 이름 입력 : ");
+    scanf("%s",name);
+
+    for(int i=0;i<idx;i++){
+        if(!strcmp(name,arr[i].name)){
+            char name_chn[20];
+            char phone_chn[20];
+            printf("변경할 이름 : ");
+            scanf("%s",name_chn);
+            printf("변경할 연락처 : ");
+            scanf("%s",phone_chn);
+            
+            int j =0;
+            while(arr[i].name[j]!='\0'){
+                arr[i].name[j]=name_chn[j];
+                j++;
+            }
+
+            j=0;
+            while(arr[i].phone[j]!='\0'){
+                arr[i].phone[j]=phone_chn[j];
+                j++;
+            }
+
+            printf("변경 완료\n");
+            return;
+        }
+    }
+
+    printf("검색한 이름이 주소록에 없습니다.\n");
+    return;
+}
+
 int main(void){
     int n = -1;
 
